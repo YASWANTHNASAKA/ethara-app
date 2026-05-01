@@ -14,7 +14,7 @@ function Register({ onLogin, onSwitch }) {
     setLoading(true);
     setError('');
     try {
-      const res = await axios.post('http://localhost:5000/api/auth/register', { name, email, password });
+      const res = await axios.post('https://ethara-app.vercel.app/api/auth/register', { name, email, password });
       onLogin(res.data.token, res.data.user);
     } catch (err) {
       setError(err.response?.data?.message || 'Registration failed');

@@ -12,7 +12,7 @@ function Dashboard({ user, token, onLogout }) {
 
   const fetchTasks = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/tasks', { headers });
+      const res = await axios.get('https://ethara-app.vercel.app/api/tasks', { headers });
       setTasks(res.data);
     } catch (err) {
       console.log(err);
@@ -25,7 +25,7 @@ function Dashboard({ user, token, onLogout }) {
     if (!title) return setError('Title is required');
     setError('');
     try {
-      await axios.post('http://localhost:5000/api/tasks', { title, description, priority }, { headers });
+      await axios.post('https://ethara-app.vercel.app/api/tasks', { title, description, priority }, { headers });
       setTitle('');
       setDescription('');
       setPriority('medium');
@@ -37,7 +37,7 @@ function Dashboard({ user, token, onLogout }) {
 
   const updateStatus = async (id, status) => {
     try {
-      await axios.put(`http://localhost:5000/api/tasks/${id}`, { status }, { headers });
+      await axios.put(`https://ethara-app.vercel.app/api/tasks/${id}`, { status }, { headers });
       fetchTasks();
     } catch (err) {
       console.log(err);
@@ -46,7 +46,7 @@ function Dashboard({ user, token, onLogout }) {
 
   const deleteTask = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/tasks/${id}`, { headers });
+      await axios.delete(`https://ethara-app.vercel.app/api/tasks/${id}`, { headers });
       fetchTasks();
     } catch (err) {
       console.log(err);
