@@ -1,5 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
+
+const API = 'https://ethara-app.vercel.app';
 
 function Dashboard({ user, token, onLogout }) {
   const [tasks, setTasks] = useState([]);
@@ -10,22 +12,22 @@ function Dashboard({ user, token, onLogout }) {
 
   const headers = { Authorization: `Bearer ${token}` };
 
-  const fetchTasks = async () => {
+  const fetchTasks = useCallback(async () => {
     try {
-      const res = await axios.get('https://ethara-app.vercel.app/api/tasks', { headers });
+      const res = await axios.get(`${API}/api/tasks`, { headers });
       setTasks(res.data);
     } catch (err) {
       console.log(err);
     }
-  };
+  }, [token]);
 
-  useEffect(() => { fetchTasks(); }, []);
+  useEffect(() => { fetchTasks(); }, [fetchTasks]);
 
   const addTask = async () => {
     if (!title) return setError('Title is required');
     setError('');
     try {
-      await axios.post('https://ethara-app.vercel.app/api/tasks', { title, description, priority }, { headers });
+      await axios.post(`${API}/api/tasks`, { title, description, priority }, { headers });
       setTitle('');
       setDescription('');
       setPriority('medium');
@@ -37,7 +39,7 @@ function Dashboard({ user, token, onLogout }) {
 
   const updateStatus = async (id, status) => {
     try {
-      await axios.put(`https://ethara-app.vercel.app/api/tasks/${id}`, { status }, { headers });
+      await axios.put(`${API}/api/tasks/${id}`, { status }, { headers });
       fetchTasks();
     } catch (err) {
       console.log(err);
@@ -46,7 +48,7 @@ function Dashboard({ user, token, onLogout }) {
 
   const deleteTask = async (id) => {
     try {
-      await axios.delete(`https://ethara-app.vercel.app/api/tasks/${id}`, { headers });
+      await axios.delete(`${API}/api/tasks/${id}`, { headers });
       fetchTasks();
     } catch (err) {
       console.log(err);
