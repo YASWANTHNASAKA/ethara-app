@@ -1,0 +1,98 @@
+=======================================================
+        ETHARA-APP — TASK MANAGER (FULL STACK)
+=======================================================
+
+LIVE APP      : https://ethara-app-ofy8.vercel.app
+BACKEND API   : https://ethara-app.vercel.app
+GITHUB REPO   : https://github.com/YASWANTHNASAKA/ethara-app
+
+-------------------------------------------------------
+PROJECT OVERVIEW
+-------------------------------------------------------
+A full-stack Task Manager web application built with
+React on the frontend and Node.js + Express on the
+backend. Users can register, log in, and manage their
+tasks with priorities and status tracking.
+
+-------------------------------------------------------
+TECH STACK
+-------------------------------------------------------
+Frontend  : React.js, Axios, CSS
+Backend   : Node.js, Express.js
+Auth      : JSON Web Tokens (JWT), bcryptjs
+Hosting   : Vercel (Frontend + Backend)
+Version   : GitHub
+
+-------------------------------------------------------
+FEATURES
+-------------------------------------------------------
+- User Registration and Login
+- JWT-based secure authentication
+- Add tasks with title, description and priority
+- Set priority levels: Low / Medium / High
+- Update task status: To Do / In Progress / Done
+- Delete tasks
+- Dashboard with task statistics
+- Fully responsive UI
+
+-------------------------------------------------------
+PROJECT STRUCTURE
+-------------------------------------------------------
+ethara-app/
+  backend/
+    models/
+      User.js         - User data and password hashing
+      Task.js         - Task data and CRUD operations
+    routes/
+      auth.js         - Register and Login API routes
+      tasks.js        - Task CRUD API routes
+    server.js         - Express server entry point
+    vercel.json       - Vercel deployment config
+    .env              - Environment variables
+
+  frontend/
+    src/
+      components/
+        Login.js      - Login page component
+        Register.js   - Register page component
+        Dashboard.js  - Main dashboard component
+      App.js          - Root React component
+      index.css       - Global styles
+      index.js        - React entry point
+
+-------------------------------------------------------
+API ENDPOINTS
+-------------------------------------------------------
+POST   /api/auth/register   - Register new user
+POST   /api/auth/login      - Login existing user
+GET    /api/tasks           - Get all tasks (auth required)
+POST   /api/tasks           - Create new task (auth required)
+PUT    /api/tasks/:id       - Update task status (auth required)
+DELETE /api/tasks/:id       - Delete a task (auth required)
+
+-------------------------------------------------------
+HOW TO RUN LOCALLY
+-------------------------------------------------------
+1. Clone the repository:
+   git clone https://github.com/YASWANTHNASAKA/ethara-app.git
+
+2. Run Backend:
+   cd ethara-app/backend
+   npm install
+   node server.js
+   (Runs on http://localhost:5000)
+
+3. Run Frontend:
+   cd ethara-app/frontend
+   npm install
+   npm start
+   (Runs on http://localhost:3000)
+
+-------------------------------------------------------
+DEVELOPER
+-------------------------------------------------------
+Name    : Yaswanth Nasaka
+GitHub  : https://github.com/YASWANTHNASAKA
+College : KL University, Andhra Pradesh
+
+=======================================================
