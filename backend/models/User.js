@@ -1,15 +1,11 @@
-const bcrypt = require('bcryptjs');
+const mongoose = require('mongoose');
 
-const users = [];
+const UserSchema = new mongoose.Schema({
+  name: { type: String, required: true },
+  email: { type: String, required: true, unique: true },
+  password: { type: String, required: true },
+  role: { type: String, enum: ['admin', 'member'], default: 'member' },
+  createdAt: { type: Date, default: Date.now }
+});
 
-const createUser = async (name, email, password) => {
-  const hashed = await bcrypt.hash(password, 10);
-  const user = { id: Date.now().toString(), name, email, password: hashed };
-  users.push(user);
-  return user;
-};
-
-const findUserByEmail = (email) => users.find(u => u.email === email);
-const findUserById = (id) => users.find(u => u.id === id);
-
-module.exports = { createUser, findUserByEmail, findUserById };
+module.exports = mongoose.model('User', UserSchema);

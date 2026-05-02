@@ -1,171 +1,74 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
-body {
-  font-family: 'Segoe UI', sans-serif;
-  background: #f0f2f5;
-  color: #333;
-}
+body { font-family: 'Segoe UI', sans-serif; background: #f0f2f5; color: #333; }
 
-.auth-wrapper {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-}
+.auth-wrapper { min-height: 100vh; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
 
-.auth-box {
-  background: white;
-  padding: 40px;
-  border-radius: 16px;
-  width: 100%;
-  max-width: 400px;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.2);
-}
+.auth-box { background: white; padding: 40px; border-radius: 16px; width: 100%; max-width: 400px; box-shadow: 0 20px 60px rgba(0,0,0,0.2); }
 
-.auth-box h2 {
-  text-align: center;
-  margin-bottom: 24px;
-  color: #667eea;
-  font-size: 28px;
-}
+.auth-box h2 { text-align: center; margin-bottom: 24px; color: #667eea; font-size: 28px; }
 
-.auth-box input {
-  width: 100%;
-  padding: 12px 16px;
-  margin-bottom: 16px;
-  border: 2px solid #e0e0e0;
-  border-radius: 8px;
-  font-size: 15px;
-  outline: none;
-  transition: border 0.3s;
-}
+.auth-box input, .auth-box select { width: 100%; padding: 12px 16px; margin-bottom: 16px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 15px; outline: none; transition: border 0.3s; }
 
 .auth-box input:focus { border-color: #667eea; }
 
-.btn-primary {
-  width: 100%;
-  padding: 13px;
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  color: white;
-  border: none;
-  border-radius: 8px;
-  font-size: 16px;
-  cursor: pointer;
-  font-weight: 600;
-  transition: opacity 0.3s;
-}
+.btn-primary { width: 100%; padding: 13px; background: linear-gradient(135deg, #667eea, #764ba2); color: white; border: none; border-radius: 8px; font-size: 16px; cursor: pointer; font-weight: 600; }
 
-.btn-primary:hover { opacity: 0.9; }
+.auth-box p { text-align: center; margin-top: 16px; color: #666; }
 
-.auth-box p {
-  text-align: center;
-  margin-top: 16px;
-  color: #666;
-}
-
-.auth-box span {
-  color: #667eea;
-  cursor: pointer;
-  font-weight: 600;
-}
+.auth-box span { color: #667eea; cursor: pointer; font-weight: 600; }
 
 .error { color: red; text-align: center; margin-bottom: 12px; font-size: 14px; }
 
-/* Dashboard */
 .dashboard { min-height: 100vh; background: #f0f2f5; }
 
-.navbar {
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  padding: 16px 32px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  color: white;
-}
+.navbar { background: linear-gradient(135deg, #667eea, #764ba2); padding: 16px 32px; display: flex; justify-content: space-between; align-items: center; color: white; }
 
 .navbar h1 { font-size: 22px; }
 
-.btn-logout {
-  padding: 8px 20px;
-  background: rgba(255,255,255,0.2);
-  color: white;
-  border: 2px solid white;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: 600;
-  transition: background 0.3s;
-}
+.role-badge { background: rgba(255,255,255,0.2); padding: 4px 12px; border-radius: 20px; font-size: 13px; font-weight: 600; }
 
-.btn-logout:hover { background: rgba(255,255,255,0.3); }
+.btn-logout { padding: 8px 20px; background: rgba(255,255,255,0.2); color: white; border: 2px solid white; border-radius: 8px; cursor: pointer; font-weight: 600; }
 
-.dashboard-body { padding: 32px; max-width: 900px; margin: 0 auto; }
+.dashboard-body { padding: 32px; max-width: 1000px; margin: 0 auto; }
 
-.task-form {
-  background: white;
-  padding: 24px;
-  border-radius: 16px;
-  margin-bottom: 32px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-}
+.tabs { display: flex; gap: 12px; margin-bottom: 24px; }
+
+.tab { padding: 10px 24px; border: 2px solid #667eea; border-radius: 8px; background: white; color: #667eea; cursor: pointer; font-weight: 600; font-size: 14px; }
+
+.tab.active { background: linear-gradient(135deg, #667eea, #764ba2); color: white; }
+
+.tab:disabled { opacity: 0.4; cursor: not-allowed; }
+
+.task-form { background: white; padding: 24px; border-radius: 16px; margin-bottom: 32px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
 
 .task-form h3 { margin-bottom: 16px; color: #667eea; }
 
-.task-form input, .task-form textarea, .task-form select {
-  width: 100%;
-  padding: 10px 14px;
-  margin-bottom: 12px;
-  border: 2px solid #e0e0e0;
-  border-radius: 8px;
-  font-size: 14px;
-  outline: none;
-  transition: border 0.3s;
-}
-
-.task-form input:focus, .task-form textarea:focus { border-color: #667eea; }
+.task-form input, .task-form textarea, .task-form select { width: 100%; padding: 10px 14px; margin-bottom: 12px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 14px; outline: none; }
 
 .task-form textarea { height: 80px; resize: none; }
 
-.btn-add {
-  padding: 10px 28px;
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: 600;
-  font-size: 15px;
-}
+.btn-add { padding: 10px 28px; background: linear-gradient(135deg, #667eea, #764ba2); color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 15px; }
 
 .tasks-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px; }
 
-.task-card {
-  background: white;
-  border-radius: 16px;
-  padding: 20px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-  border-left: 5px solid #667eea;
-  transition: transform 0.2s;
-}
+.task-card { background: white; border-radius: 16px; padding: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); border-left: 5px solid #667eea; transition: transform 0.2s; }
 
 .task-card:hover { transform: translateY(-4px); }
 
 .task-card.high { border-left-color: #e74c3c; }
 .task-card.medium { border-left-color: #f39c12; }
 .task-card.low { border-left-color: #2ecc71; }
+.task-card.overdue { background: #fff8f8; }
+
+.overdue-badge { background: #fde8e8; color: #e74c3c; padding: 3px 10px; border-radius: 20px; font-size: 11px; font-weight: 600; display: inline-block; margin-bottom: 8px; }
 
 .task-card h4 { font-size: 16px; margin-bottom: 8px; }
-.task-card p { color: #666; font-size: 13px; margin-bottom: 12px; }
+.task-card p { color: #666; font-size: 13px; margin-bottom: 8px; }
 
 .task-meta { display: flex; gap: 8px; margin-bottom: 12px; flex-wrap: wrap; }
 
-.badge {
-  padding: 4px 10px;
-  border-radius: 20px;
-  font-size: 11px;
-  font-weight: 600;
-  text-transform: uppercase;
-}
+.badge { padding: 4px 10px; border-radius: 20px; font-size: 11px; font-weight: 600; text-transform: uppercase; }
 
 .badge-priority-high { background: #fde8e8; color: #e74c3c; }
 .badge-priority-medium { background: #fef3e2; color: #f39c12; }
@@ -176,46 +79,17 @@ body {
 
 .task-actions { display: flex; gap: 8px; }
 
-.btn-status {
-  flex: 1;
-  padding: 6px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 12px;
-  font-weight: 600;
-  background: #f0f2f5;
-  transition: background 0.2s;
-}
+.btn-status { flex: 1; padding: 6px; border: none; border-radius: 6px; cursor: pointer; font-size: 12px; font-weight: 600; background: #f0f2f5; }
 
 .btn-status:hover { background: #667eea; color: white; }
 
-.btn-delete {
-  padding: 6px 12px;
-  background: #fde8e8;
-  color: #e74c3c;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: 600;
-  font-size: 12px;
-}
-
-.btn-delete:hover { background: #e74c3c; color: white; }
+.btn-delete { padding: 6px 12px; background: #fde8e8; color: #e74c3c; border: none; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 12px; }
 
 .empty { text-align: center; color: #999; padding: 40px; font-size: 16px; }
 
 .stats { display: flex; gap: 16px; margin-bottom: 24px; flex-wrap: wrap; }
 
-.stat-card {
-  background: white;
-  border-radius: 12px;
-  padding: 16px 24px;
-  flex: 1;
-  min-width: 120px;
-  text-align: center;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-}
+.stat-card { background: white; border-radius: 12px; padding: 16px 24px; flex: 1; min-width: 100px; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
 
 .stat-card h3 { font-size: 28px; color: #667eea; }
 .stat-card p { color: #666; font-size: 13px; }

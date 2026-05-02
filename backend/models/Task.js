@@ -1,33 +1,15 @@
-const tasks = [];
+const mongoose = require('mongoose');
 
-const createTask = (userId, title, description, priority) => {
-  const task = {
-    id: Date.now().toString(),
-    userId,
-    title,
-    description: description || '',
-    priority: priority || 'medium',
-    status: 'todo',
-    createdAt: new Date()
-  };
-  tasks.push(task);
-  return task;
-};
+const TaskSchema = new mongoose.Schema({
+  title: { type: String, required: true },
+  description: { type: String, default: '' },
+  status: { type: String, enum: ['todo', 'inprogress', 'done'], default: 'todo' },
+  priority: { type: String, enum: ['low', 'medium', 'high'], default: 'medium' },
+  project: { type: mongoose.Schema.Types.ObjectId, ref: 'Project', required: true },
+  assignedTo: { type: mongoose.Schema.Types.ObjectId, ref: 'User', default: null },
+  createdBy: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
+  dueDate: { type: Date, default: null },
+  createdAt: { type: Date, default: Date.now }
+});
 
-const getTasksByUser = (userId) => tasks.filter(t => t.userId === userId);
-
-const updateTask = (id, userId, updates) => {
-  const task = tasks.find(t => t.id === id && t.userId === userId);
-  if (!task) return null;
-  Object.assign(task, updates);
-  return task;
-};
-
-const deleteTask = (id, userId) => {
-  const index = tasks.findIndex(t => t.id === id && t.userId === userId);
-  if (index === -1) return false;
-  tasks.splice(index, 1);
-  return true;
-};
-
-module.exports = { createTask, getTasksByUser, updateTask, deleteTask };
+module.exports = mongoose.model('Task', TaskSchema);
