@@ -24,7 +24,7 @@ function Login({ onLogin, onSwitch }) {
 
   return (
     <div className="auth-box">
-      <h2>Welcome Back 👋</h2>
+      <h2>Welcome Back </h2>
       {error && <p className="error">{error}</p>}
       <input type="email" placeholder="Email address" value={email} onChange={e => setEmail(e.target.value)} />
       <input type="password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} />

@@ -27,7 +27,7 @@ function Register({ onLogin, onSwitch }) {
 
   return (
     <div className="auth-box">
-      <h2>Create Account 🚀</h2>
+      <h2>Create Account </h2>
       {error && <p className="error">{error}</p>}
       <input type="text" placeholder="Full name" value={name} onChange={e => setName(e.target.value)} />
       <input type="email" placeholder="Email address" value={email} onChange={e => setEmail(e.target.value)} />

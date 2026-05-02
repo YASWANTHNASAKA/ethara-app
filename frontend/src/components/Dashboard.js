@@ -103,10 +103,10 @@ function Dashboard({ user, token, onLogout }) {
   return (
     <div className="dashboard">
       <div className="navbar">
-        <h1>📋 Team Task Manager</h1>
+        <h1> Team Task Manager</h1>
         <div>
-          <span className="role-badge">{user.role === 'admin' ? '👑 Admin' : '👤 Member'}</span>
-          <span style={{ marginRight: 16, marginLeft: 10 }}>Hello, {user.name} 👋</span>
+          <span className="role-badge">{user.role === 'admin' ? ' Admin' : '👤 Member'}</span>
+          <span style={{ marginRight: 16, marginLeft: 10 }}>Hello, {user.name} </span>
           <button className="btn-logout" onClick={onLogout}>Logout</button>
         </div>
       </div>
