@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 
-const API = 'http://localhost:5000';
+const API = 'https://ethara-app-production.up.railway.app';
 
 function Dashboard({ user, token, onLogout }) {
   const [projects, setProjects] = useState([]);

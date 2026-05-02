@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const API = 'http://localhost:5000';
+const API = 'https://ethara-app-production.up.railway.app';
 
 function Register({ onLogin, onSwitch }) {
   const [name, setName] = useState('');
